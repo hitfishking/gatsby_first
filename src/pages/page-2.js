@@ -20,7 +20,7 @@ const SecondPage = ( {data} ) => (
 		{
 		product.image.map((img, j) => (
 		  <div style={{display: 'inline-flex'}}> 
-			<img src={img.url} alt={img.fileName} style={{width: '200px', height: '200px'}}></img> 
+			<img src={img.url} alt={img.fileName} style={{height: '200px'}}></img> 
 		  </div>			
 		))				
 		}
