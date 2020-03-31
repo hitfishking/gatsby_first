@@ -11,9 +11,11 @@ const IndexPage = () => (
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
-	<p>我来添加一行...，嘿嘿！！</p>
-	<p>我来添加第二行...，git pages能看见吗??</p>
-	<p>为测试Netlify自动部署功能，添加第三行看看效果....</p>
+	<p>1. 我来添加一行...，嘿嘿！！</p>
+	<p>2. 我来添加第二行...，git pages能看见吗??</p>
+	<p>3. 为测试Netlify自动部署功能，添加第三行看看效果....</p>
+	<p>4. 再push一次看效果；graphcms中也添加了Laptop记录....</p>
+	
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
