@@ -13,6 +13,17 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+	
+	{
+      resolve: `gatsby-source-graphql`,
+      options: {
+        fieldName: `cms`,
+        url: `https://api-apeast.graphcms.com/v1/ck8f7dkvy0ssk01dmfammgta9/master`,
+        typeName: `GraphCMS`,
+        refetchInterval: 60,
+      },
+    },
+	
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
