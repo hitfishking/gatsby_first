@@ -13,16 +13,43 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-	
+
+
 	{
       resolve: `gatsby-source-graphql`,
       options: {
         fieldName: `cms`,
         url: `https://api-apeast.graphcms.com/v1/ck8f7dkvy0ssk01dmfammgta9/master`,
         typeName: `GraphCMS`,
-        refetchInterval: 60,
       },
     },
+
+
+	{
+      resolve: `gatsby-source-graphql`,
+      options: {
+		typeName: "DRUPAL",  
+        fieldName: `acquiaDrupal`,
+        url: `http://suxiang.dd:8083/en/graphql`,
+		//fieldName: `zhuqingDrupal`,
+		//url: `http://localhost/en/graphql`,
+      },
+    },
+
+
+/*	
+	{
+	  resolve: `gatsby-source-drupal`,
+	  options: {
+		//baseUrl: `http://suxiang.dd:8083/`,   //suxiang版本出现500错误；应该不是JSON:API版本问题(换版本错误仍在)。
+		baseUrl: `http://localhost/zhuqing/`,
+		apiBase: `jsonapi`,    
+	  },
+	},
+*/
+
+
+	
 	
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
