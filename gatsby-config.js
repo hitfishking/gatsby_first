@@ -4,6 +4,7 @@ module.exports = {
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
+
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -15,7 +16,7 @@ module.exports = {
     },
 
 
-	{
+  	{
       resolve: `gatsby-source-graphql`,
       options: {
         fieldName: `cms`,
@@ -25,17 +26,18 @@ module.exports = {
     },
 
 
+/*
 	{
       resolve: `gatsby-source-graphql`,
       options: {
-		typeName: "DRUPAL",  
+      typeName: "DRUPAL",  
         fieldName: `acquiaDrupal`,
         url: `http://suxiang.dd:8083/en/graphql`,
-		//fieldName: `zhuqingDrupal`,
-		//url: `http://localhost/en/graphql`,
-      },
-    },
-
+      fieldName: `zhuqingDrupal`,
+      url: `http://localhost/en/graphql`,
+     },
+   },
+*/
 
 /*	
 	{
@@ -48,8 +50,6 @@ module.exports = {
 	},
 */
 
-
-	
 	
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
