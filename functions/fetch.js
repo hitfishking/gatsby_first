@@ -3,9 +3,8 @@ import axios from "axios"
 
 exports.handler = function(event, context, callback) {
 	const apiRoot = "https://api.unsplash.com"
-	const accessKey = process.env.MY_ACCESS_KEY
-	// const accessKey = process.env.MY_ACCESS_KEY || config.accessKey
-	// const accessKey = "1hXeks49GmUUsjvR6WIbVNvyubc9DU_wamGC9_cLaqE"
+	const accessKey = process.env.UNSPLASH_ACCESS_KEY   //在Netlify云端运行时，使用UI中设置的环境变量。
+	// const accessKey = config.accessKey  //在本地运行时，使用config.js中的key配置。
 
   const doggoEndpoint = `${apiRoot}/photos/random?client_id=${accessKey}&count=${10}&collections='3816141,1154337,1254279'`
 
