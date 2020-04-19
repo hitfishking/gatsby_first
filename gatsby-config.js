@@ -1,8 +1,22 @@
+let { createProxyMiddleware } = require("http-proxy-middleware")
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    author: `@hitfishking`,
+  },
+
+  // Enables the use of function URLs locally
+  // developMiddleware()是一个函数，可能是由gatsby框架调用，同时，gatsby框架建立一个express对象app，作为参数传入。
+  developMiddleware: app => {
+    app.use(
+      "/.netlify/functions/",
+      createProxyMiddleware({
+        target: "http://localhost:9000",
+        pathRewrite: { "/.netlify/functions/": "" },
+      })
+    )
   },
 
   plugins: [
