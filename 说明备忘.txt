@@ -1,2 +1,0 @@
-本项目在本develop/build均可以；但部署到Netlify时失败；因看不到deploy log，无法调试；
-目前该问题尚未解决。
