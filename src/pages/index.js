@@ -19,6 +19,7 @@ const IndexPage = () => (
     <p>2. 我来添加第二行...，git pages能看见吗??</p>
     <p>3. 为测试Netlify自动部署功能，添加第三行看看效果....</p>
     <p>4. 再push一次看效果；graphcms中也添加了Laptop记录....</p>
+    <p>5. 改变此行，不commit；看netlify deploy等否反映出来...</p>
 	
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />

@@ -1,4 +1,4 @@
-let { createProxyMiddleware } = require("http-proxy-middleware")
+// let { createProxyMiddleware } = require("http-proxy-middleware") //netlify dev自带proxy功能，不必单独安装proxy express中间件了。
 
 module.exports = {
   siteMetadata: {
@@ -9,15 +9,15 @@ module.exports = {
 
   // Enables the use of function URLs locally
   // developMiddleware()是一个函数，可能是由gatsby框架调用，同时，gatsby框架建立一个express对象app，作为参数传入。
-  developMiddleware: app => {
-    app.use(
-      "/.netlify/functions/",
-      createProxyMiddleware({
-        target: "http://localhost:9000",
-        pathRewrite: { "/.netlify/functions/": "" },
-      })
-    )
-  },
+  // developMiddleware: app => {
+  //   app.use(
+  //     "/.netlify/functions/",
+  //     createProxyMiddleware({
+  //       target: "http://localhost:9000",
+  //       pathRewrite: { "/.netlify/functions/": "" },
+  //     })
+  //   )
+  // },
 
   plugins: [
     `gatsby-plugin-react-helmet`,

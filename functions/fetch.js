@@ -1,5 +1,5 @@
 import axios from "axios"
-// import config from "../config"
+// import config from "../config"   //使用netlify dev，可以实现让本地云函数能获得云端设置的环境变量；故不再需要此方案。
 
 exports.handler = function(event, context, callback) {
 	const apiRoot = "https://api.unsplash.com"
