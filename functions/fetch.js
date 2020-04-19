@@ -1,9 +1,10 @@
 import axios from "axios"
-import config from "../config"
+// import config from "../config"
 
 exports.handler = function(event, context, callback) {
-  const apiRoot = "https://api.unsplash.com"
-	const accessKey = process.env.MY_ACCESS_KEY || config.accessKey
+	const apiRoot = "https://api.unsplash.com"
+	const accessKey = process.env.MY_ACCESS_KEY
+	// const accessKey = process.env.MY_ACCESS_KEY || config.accessKey
 	// const accessKey = "1hXeks49GmUUsjvR6WIbVNvyubc9DU_wamGC9_cLaqE"
 
   const doggoEndpoint = `${apiRoot}/photos/random?client_id=${accessKey}&count=${10}&collections='3816141,1154337,1254279'`
