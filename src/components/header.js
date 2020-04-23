@@ -55,6 +55,15 @@ const Header = ({ siteTitle }) => (
           >
             Writing Pad
           </Link>
+          <Link
+            to="/contact/"
+            style={{
+              padding: "10px",
+            }}
+            className="has-text-white"
+          >
+            Contact
+          </Link>
         </div>
       </div>
     </nav>

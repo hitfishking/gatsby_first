@@ -45,8 +45,7 @@ const WritingPadPage = () => {
   return (
     <Layout>
       <SEO title="Page four" />
-      <h1 className="is-size-2">Writing Pad Page2222</h1>
-      <p className="is-size-4">Welcome to page 4</p>
+      <h1 className="is-size-2">Writing Pad Page</h1>
 
       {identity && identity.isLoggedIn ? (
           <>

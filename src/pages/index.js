@@ -64,7 +64,8 @@ const IndexPage = () => (
 
     <div><Link to="/products/">Go to Product List Page (page 2)</Link></div>
     <div><Link to="/gallery/">Go to Doggo Gallery Page (page 3)</Link></div>
-  	<div><Link to="/writingpad/">Go to Writing Pad (page 4)</Link></div>
+  	<div><Link to="/writingpad/">Go to Writing Pad Page (page 4)</Link></div>
+    <div><Link to="/contact/">Go to Contact Page (page 5)</Link></div>
   </Layout>
 )
 
