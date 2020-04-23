@@ -13,7 +13,7 @@ const ImageGallery = ({ images, loading, fetchImages }) => {
       hasMore={true}
       loader={
         <p style={{ textAlign: "center", marginTop: "1%" }}>
-          More doggo incoming 🐕 🐕...
+          More doggo incoming <span role="img"  aria-label="dong">🐕 🐕...</span>
         </p>
       }
     >

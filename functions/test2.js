@@ -3,7 +3,7 @@ exports.handler = function(event, context, callback) {
 	
 	let data = {
 		name:'ray',
-		foo:[1,2,4,6,7,80],
+		foo:[1,2,4,6,7,886],
 		time:Date.now()
 	};
 	

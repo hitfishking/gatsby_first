@@ -46,6 +46,15 @@ const Header = ({ siteTitle }) => (
           >
             Gallery
           </Link>
+          <Link
+            to="/writingpad/"
+            style={{
+              padding: "10px",
+            }}
+            className="has-text-white"
+          >
+            Writing Pad
+          </Link>
         </div>
       </div>
     </nav>

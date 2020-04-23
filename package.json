@@ -5,11 +5,15 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@reach/dialog": "^0.10.1",
+    "@reach/tabs": "^0.10.1",
+    "@reach/visually-hidden": "^0.10.1",
     "axios": "^0.19.2",
     "bulma": "^0.8.2",
     "gatsby": "^2.19.45",
     "gatsby-image": "^2.2.44",
     "gatsby-plugin-manifest": "^2.2.48",
+    "gatsby-plugin-netlify-identity": "0.0.3",
     "gatsby-plugin-offline": "^3.0.41",
     "gatsby-plugin-react-helmet": "^3.1.24",
     "gatsby-plugin-sharp": "^2.4.13",
@@ -22,7 +26,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
-    "react-infinite-scroll-component": "^5.0.4"
+    "react-infinite-scroll-component": "^5.0.4",
+    "react-netlify-identity-widget": "^0.2.7"
   },
   "devDependencies": {
     "gh-pages": "^2.2.0",
@@ -42,7 +47,7 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "deploy": "gatsby build && gh-pages -d public -b master",
-    "prod": "npm run build; npm run build:lambda",
+    "prod": "gatsby build && netlify-lambda build functions",
     "start:lambda": "netlify-lambda serve functions",
     "build:lambda": "netlify-lambda build functions"
   },

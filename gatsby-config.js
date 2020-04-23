@@ -64,6 +64,13 @@ module.exports = {
 	},
 */
 
+    {
+      resolve: `gatsby-plugin-netlify-identity`,
+      options: {
+        url: `https://static2.wolfbook.cn/` // required!
+      }
+    },
+
 	
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
