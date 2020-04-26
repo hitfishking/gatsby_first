@@ -28,10 +28,10 @@ const WritingPadPage = () => {
       setNotes(result.data.notes);   //将获取的远程状态数据存储在本地状态变量中.
       setStatus("loaded");
     });
-    return () => {
+    return () => {   //useEffect返回一个函数，是对称收尾函数，在onDidUnMounted时运行。这里的逻辑是确保cancel为真。
       canceled = true;
     };
-  }, [status]); 
+  }, [status]);  //每次status变化时运行useEffect.
 
   const reloadNotes = () => setStatus('loading');
 
@@ -52,18 +52,18 @@ const WritingPadPage = () => {
             <button className="login-btn" onClick={() => setDialog(true)}>
               {isLoggedIn ? `Hello ${name}, Log out here!` : "LOG IN"}
             </button>
-            <Form reloadNotes={reloadNotes}/>
-              {notes ? (
-                <ul>
-                  {notes.map(note => (
-                    <li key={note._id}>
-                      <Note note={note} reloadNotes={reloadNotes}/>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p>Loading notes...</p>
-              )}
+            <Form reloadNotes={reloadNotes}/>  {/*Form是一个有hook数据状态的组件.*/}
+            {notes ? (
+              <ul>
+                {notes.map(note => (
+                  <li key={note._id}>
+                    <Note note={note} reloadNotes={reloadNotes}/>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>Loading notes...</p>
+            )}
           </>
         ) : (
           <button className="login-btn" onClick={() => setDialog(true)}>

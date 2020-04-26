@@ -2,15 +2,15 @@ import React from "react"
 
 const ContactForm = props => (
   <section id="contact">
-    <section>
+    <section>          
       <form
         name="contact"
         method="post"
         action="/success"
-        data-netlify="true"
+        data-netlify="true"    
         netlify-honeypot="bot-field"
-      >
-        <input type="hidden" name="bot-field" />
+      >     {/*data-netlify属性被云端parser，进而会自动生成相应js代码。*/}  
+        <input type="hidden" name="bot-field" />   {/*honeypot用*/}
 
         <div className="field half first">
           <label htmlFor="name">Name</label>
@@ -22,7 +22,7 @@ const ContactForm = props => (
         </div>
         <div className="field">
           <label htmlFor="message">Message</label>
-          <textarea name="message" id="message" rows="6" required>11111111111111</textarea>
+          <textarea name="message" id="message" rows="6" required></textarea>
         </div>
 
         <ul className="actions">

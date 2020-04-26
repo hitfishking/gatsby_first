@@ -4,6 +4,8 @@ import PropTypes from "prop-types"
 import InfiniteScroll from "react-infinite-scroll-component"
 import "./gallery.css"
 
+//React组件体系中，显示组件外围包裹一层数据组件，是常见的模式。
+//该组件主要负责显示。
 const ImageGallery = ({ images, loading, fetchImages }) => {
   // Create gallery here
   return (
@@ -29,12 +31,15 @@ const ImageGallery = ({ images, loading, fetchImages }) => {
     </InfiniteScroll>
 	)}
 
+
+//该组件主要负责封装hook状态数据。
 const InfiniteImages = () => {
 	// Hold state
 	const [images, setImages] = useState([])
 	const [loading, setLoading] = useState(true)
 
-	// Fetch images on component mount
+	// Fetch images on component mount；
+	//只是运行这一次。后续的多次获取数据，是<InfiniteScroll>的功能、父组件将函数作为参数传递给子组件。
 	useEffect(() => {
 		fetchImages()
 	}, [])

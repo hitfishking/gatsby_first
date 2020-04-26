@@ -4,7 +4,7 @@ import axios from "axios";
 const Form = ({reloadNotes}) => {
 	const [text, setText] = useState('');   //setText()绑定在input框的onChange事件上.
 	
-  const handleSubmit = async event => {   //这个函数是form的onSubmit事件函数，是上行反向渲染链条上的函数；
+  const handleSubmit = async (event) => {   //这个函数是form的onSubmit事件函数，是上行反向渲染链条上的函数；
     event.preventDefault();               //封装的不好，不是纯函数!
 
     if(text === '') return;
