@@ -74,3 +74,7 @@ config.js
 
 # Local Netlify folder
 .netlify
+
+# fauna db config file
+.faunarc
+*.fql

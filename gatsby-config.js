@@ -1,4 +1,4 @@
-// let { createProxyMiddleware } = require("http-proxy-middleware") //netlify dev自带proxy功能，不必单独安装proxy express中间件了。
+let { createProxyMiddleware } = require("http-proxy-middleware") //netlify dev自带proxy功能，不必单独安装proxy express中间件了。
 
 module.exports = {
   siteMetadata: {
@@ -6,18 +6,6 @@ module.exports = {
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@hitfishking`,
   },
-
-  // Enables the use of function URLs locally
-  // developMiddleware()是一个函数，可能是由gatsby框架调用，同时，gatsby框架建立一个express对象app，作为参数传入。
-  // developMiddleware: app => {
-  //   app.use(
-  //     "/.netlify/functions/",
-  //     createProxyMiddleware({
-  //       target: "http://localhost:9000",
-  //       pathRewrite: { "/.netlify/functions/": "" },
-  //     })
-  //   )
-  // },
 
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -28,7 +16,14 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdowns`,
+        path: `${__dirname}/src/markdowns`,
+      },
+    },
+    'gatsby-transformer-remark',
 
   	{
       resolve: `gatsby-source-graphql`,
@@ -38,6 +33,16 @@ module.exports = {
         typeName: `GraphCMS`,
       },
     },
+	
+	
+	{
+    resolve: `gatsby-source-mongodb`,
+    options: { 
+      connectionString: `mongodb+srv://hitfishking:Yasun1234@cluster0-efppg.azure.mongodb.net/test?retryWrites=true&w=majority`,
+      dbName: `MagazinesDB`, 
+      collection: [`penjing`, `books`] 
+	  },
+  },
 
 
 /*
@@ -90,4 +95,18 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
+
+
+  // Enables the use of function URLs locally
+  // developMiddleware()是一个函数，可能是由gatsby框架调用，同时，gatsby框架建立一个express对象app，作为参数传入。
+  // 仅在development模式下起作用，故不必在production模式下人为关闭此功能。
+  developMiddleware: app => {
+    app.use(
+      "/.netlify/functions/",
+      createProxyMiddleware({
+        target: "http://localhost:9000",
+        pathRewrite: { "/.netlify/functions/": "" },
+      })
+    )
+  },
 }

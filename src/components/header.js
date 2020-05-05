@@ -37,6 +37,18 @@ const Header = ({ siteTitle }) => (
           >
             Products
           </Link>
+
+          <Link
+            to="/books/"
+            style={{
+              padding: "10px",
+            }}
+            className="has-text-white"
+          >
+            Books
+          </Link>
+
+
           <Link
             to="/gallery/"
             style={{

@@ -35,9 +35,10 @@ const SecondPage = ( {data} ) => (
 export default SecondPage
 
 
-//数据在graphCMS中，并在其中通过GraphiQL构造graphql查询语句。
-//gatsby为获取每个page组件输出的query，获取数据，并作为data参数传入page组件函数。
-//在组件流形微核上观察，query(相当于data)是在上游，组件是在下游。
+//数据在graphCMS中，并在graphCMS UI中通过GraphiQL构造graphql查询语句。
+//gatsby的page组件可以输出一个query常量，由gatsby负责执行此query，并做为data参数传入该page函数；
+//该gatsby page组件只是一个函数组件，且没有data/method部分；利用了gatsby框架的query常数完成查询；
+//这种方式不用组件内部使用方法调用graphCMS，更简单。
 export const query = graphql`
   query {
 	  cms {
