@@ -1,4 +1,6 @@
-let { createProxyMiddleware } = require("http-proxy-middleware") //netlify dev自带proxy功能，不必单独安装proxy express中间件了。
+//netlify dev自带proxy功能，若使用netlify dev, 则不必单独安装proxy express中间件了,可关闭此项。
+//netlify dev目前遇到的问题是更新相应速度慢，故目前仍用回gatsby develop + start:lambda.
+let { createProxyMiddleware } = require("http-proxy-middleware") 
 
 module.exports = {
   siteMetadata: {

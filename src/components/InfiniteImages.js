@@ -5,7 +5,7 @@ import InfiniteScroll from "react-infinite-scroll-component"
 import "./gallery.css"
 
 //React组件体系中，显示组件外围包裹一层数据组件，是常见的模式。
-//该组件主要负责显示。
+//B.该组件主要负责显示。
 const ImageGallery = ({ images, loading, fetchImages }) => {
   // Create gallery here
   return (
@@ -32,7 +32,7 @@ const ImageGallery = ({ images, loading, fetchImages }) => {
 	)}
 
 
-//该组件主要负责封装hook状态数据。
+//A.该组件主要负责封装hook状态数据。
 const InfiniteImages = () => {
 	// Hold state
 	const [images, setImages] = useState([])
@@ -58,6 +58,7 @@ const InfiniteImages = () => {
 		<ImageGallery images={images} loading={loading} fetchImages={fetchImages} />
 	)}
 
+//以下是React中的Types限定功能;为每个函数对象定义propTypes对象。
 ImageGallery.propTypes = {
 	images: PropTypes.array,
 	loading: PropTypes.bool,

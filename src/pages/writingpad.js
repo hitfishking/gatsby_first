@@ -33,7 +33,7 @@ const WritingPadPage = () => {
     };
   }, [status]);  //每次status变化时运行useEffect.
 
-  const reloadNotes = () => setStatus('loading');
+  const reloadNotes = () => setStatus('loading');  //该函数会被传递进Form子组件，实现子组件改变父组件的状态。
 
   const identity = useIdentityContext()
   const [dialog, setDialog] = React.useState(false)
@@ -52,7 +52,7 @@ const WritingPadPage = () => {
             <button className="login-btn" onClick={() => setDialog(true)}>
               {isLoggedIn ? `Hello ${name}, Log out here!` : "LOG IN"}
             </button>
-            <Form reloadNotes={reloadNotes}/>  {/*Form是一个有hook数据状态的组件.*/}
+            <Form reloadNotes={reloadNotes}/>  {/*Form是一个有hook数据状态的组件; 将函数作为props属性传递进组件.*/}
             {notes ? (
               <ul>
                 {notes.map(note => (

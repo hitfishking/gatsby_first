@@ -5,10 +5,9 @@ const Form = ({reloadNotes}) => {
 	const [text, setText] = useState('');   //setText()绑定在input框的onChange事件上.
 	
   const handleSubmit = async (event) => {   //这个函数是form的onSubmit事件函数，是上行反向渲染链条上的函数；
-    event.preventDefault();               //封装的不好，不是纯函数!
+    event.preventDefault();                 //封装的不好，不是纯函数!
 
     if(text === '') return;
-
     await axios.post('/.netlify/functions/create-note', { text });  //axios.post()不处理返回值.
 
     setText('');    //向数据库保存text后，本地状态清空.
@@ -17,7 +16,7 @@ const Form = ({reloadNotes}) => {
 
   return (  
 		//form的特殊性在于其提供输入能力，关联上行函数，实现反向渲染.
-		//form的构造过程：先构造HTML显示部分，再关联上上行函数.
+		//form的构造过程：先构造HTML显示部分(下行部分)，再关联上上行函数.
 		//整个form的onSubmit事件绑定一个专用函数.
     <form className="note-form" onSubmit={handleSubmit}>  
       <label htmlFor="textarea">Add notes

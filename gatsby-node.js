@@ -35,7 +35,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/blog/${node.frontmatter.slug}/`,
       component: bookBlogTemplate,
-      context: {
+      context: {                           //该参数id,book, 会传入bookblog.js组件, 用于该组件的pageQuery查询。
         id: node.frontmatter.slug,
         book: node.frontmatter.book
       },
@@ -47,7 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/book/${node.id}/`,
       component: bookPageTemplate,
       context: {
-        id: node.id,
+        id: node.id,    //该参数id会传入onebook.js组件，用于该组件的pageQuery查询。
       },
     })
   }
