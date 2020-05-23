@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import styles from '../pages/writingpad.module.css'
 
 const Form = ({reloadNotes}) => {
 	const [text, setText] = useState('');   //setText()绑定在input框的onChange事件上.
@@ -18,7 +19,7 @@ const Form = ({reloadNotes}) => {
 		//form的特殊性在于其提供输入能力，关联上行函数，实现反向渲染.
 		//form的构造过程：先构造HTML显示部分(下行部分)，再关联上上行函数.
 		//整个form的onSubmit事件绑定一个专用函数.
-    <form className="note-form" onSubmit={handleSubmit}>  
+    <form className={styles.note_form} onSubmit={handleSubmit}>  
       <label htmlFor="textarea">Add notes
         <textarea   //textarea嵌套在<label>内.
           id="textarea"
@@ -26,7 +27,7 @@ const Form = ({reloadNotes}) => {
           onChange={event => setText(event.target.value)}  //输入框onChange事件绑定一个状态变量函数.
         ></textarea>
       </label>
-      <button className="save-button" type="submit">Save note</button>
+      <button className={styles.save_button} type="submit">Save note</button>
     </form>
   );
 };

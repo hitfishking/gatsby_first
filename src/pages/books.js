@@ -8,12 +8,16 @@
  *      正是这个原因，导致后续的penjing项目数据无法通过gatsby+graphql直接查询mongodb Atlas，
  *      只能通过新建一个Netlify云函数(fetch-penjing3.js),其中使用mongoose模块完成对mongodb Atlas中penjing collection的查询。
 */
+/*
+ * 本例中样式books.module.css使用CSS Module, 以确保页面组件的样式局部化，不污染全站。
+ * CSS Module似乎不支持class名中的-号，故改成_线,如：book-container改成book_container。 
+ */
 
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import "../components/books.css"
+import styles from "../components/books.module.css"
 
 const Books = (props) => {
   const books = props.data.books.edges;
@@ -34,9 +38,9 @@ const Books = (props) => {
           </div>)}
       </div>
 
-			<div className="book-container">
+			<div className={styles.book_container}>
 				{books.map(book =>
-						<div className="book">
+						<div className={styles.book}>
 							{
 								book.node.thumbnailUrl &&
                 <Link to={'/book/' + book.node.id}>   {/*<Link>指向的是静态页面url*/}

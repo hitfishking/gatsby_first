@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Note from "../components/note"
 import Form from '../components/form';
-import './writingpad.css'
+import styles from './writingpad.module.css'
 
 import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
 import "react-netlify-identity-widget/styles.css"
@@ -49,7 +49,7 @@ const WritingPadPage = () => {
 
       {identity && identity.isLoggedIn ? (
           <>
-            <button className="login-btn" onClick={() => setDialog(true)}>
+            <button className={styles.login_btn} onClick={() => setDialog(true)}>
               {isLoggedIn ? `Hello ${name}, Log out here!` : "LOG IN"}
             </button>
             <Form reloadNotes={reloadNotes}/>  {/*Form是一个有hook数据状态的组件; 将函数作为props属性传递进组件.*/}
@@ -66,7 +66,7 @@ const WritingPadPage = () => {
             )}
           </>
         ) : (
-          <button className="login-btn" onClick={() => setDialog(true)}>
+          <button className={styles.login_btn} onClick={() => setDialog(true)}>
             {isLoggedIn ? `Hello ${name}, Log out here!` : "LOG IN"}
           </button>
       )}

@@ -17,7 +17,8 @@
  */
 /*
  * ?? 本例遇到的问题是：引入的css样式并没有产生效果，而且很多table样式功能无效?!! 
- * 可能和gatsby项目的其他页面的css样式有冲突。具体原因待查。
+ * 可能和gatsby项目的其他页面的css样式有冲突。具体原因待查。注释掉全局的Layout.css，问题仍然存在?!
+ * 经查，是没有引入bootstrap.4.0.min.css造成的。
  */
 
 import React from "react"
@@ -26,6 +27,7 @@ import axios from "axios";
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import '../styles/css/bootstrap.4.0.min.css';
 import BootstrapTable from 'react-bootstrap-table-next';   
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
@@ -114,23 +116,26 @@ const PenjingList = () => {
 
   return (
 		<Layout>
+
 			<SEO title="PenJing" />
 			<h1 className="is-size-3">《中国花卉盆景杂志》目录</h1>
 			<p style={{ marginTop: "3%", marginBottom: "3%" }}>
 				显示1984年~2013年，供348期杂志的目录。
 			</p>
 
-			<form className="" onSubmit={handleSubmit}>  
-				<label htmlFor="textarea">查询内容:
-					<input   
-						type = "text"
-						placeholder = "输入查询条件..."
-						id="textarea"
-						value={text}   
-						onChange={event => setText(event.target.value)}  
-					></input>
-				</label>
-				<button className="btn btn-primary" type="submit">查询</button>
+			<form class="form-inline mb-3" onSubmit={handleSubmit}>  
+				{/* <div class="form-row align-items-center"> */}
+						<label for="textarea1" class="mr-2">查询内容:</label>
+						<input   
+							type = "text"
+							class="form-control mr-2"
+							placeholder = "输入查询条件..."
+							id="textarea1"
+							value={text}   
+							onChange={event => setText(event.target.value)}  
+						></input>
+						<button class="btn btn-primary" type="submit">查询</button>
+				{/* </div> */}
 			</form>
 
 			{/* {articles.length > 0 ? (

@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import styles from '../pages/writingpad.module.css'
 
 const Note = ({ note, reloadNotes }) => {
   const handleDelete = () => {

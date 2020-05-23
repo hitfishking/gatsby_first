@@ -1,3 +1,5 @@
+// 一般情况下，引用模块都默认都使用import，只有在纯nodejs环境下运行的程序，如gatsby-node.js，才需要使用require。
+// require()是nodejs侧默认的模块引用方法。
 const path = require('path')
 
 exports.createPages = async ({ graphql, actions }) => {
