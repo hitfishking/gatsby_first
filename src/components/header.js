@@ -86,7 +86,7 @@ const Header = ({ siteTitle }) => (
           </Link>
 
 {/* --------------- */}
-          <div class="navbar-item has-dropdown is-hoverable">
+          {/* <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
               More
             </a>
@@ -106,7 +106,7 @@ const Header = ({ siteTitle }) => (
                 Report an issue
               </a>
             </div>
-          </div>
+          </div> */}
 {/* --------------- */}
 
 

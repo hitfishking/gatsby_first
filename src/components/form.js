@@ -20,13 +20,14 @@ const Form = ({reloadNotes}) => {
 		//form的构造过程：先构造HTML显示部分(下行部分)，再关联上上行函数.
 		//整个form的onSubmit事件绑定一个专用函数.
     <form className={styles.note_form} onSubmit={handleSubmit}>  
-      <label htmlFor="textarea">Add notes
-        <textarea   //textarea嵌套在<label>内.
+      <label htmlFor="textarea" className={styles.form_label}>Add notes
+        <textarea   
           id="textarea"
           value={text}   //输入框绑定状态变量'text'.
           onChange={event => setText(event.target.value)}  //输入框onChange事件绑定一个状态变量函数.
         ></textarea>
       </label>
+
       <button className={styles.save_button} type="submit">Save note</button>
     </form>
   );

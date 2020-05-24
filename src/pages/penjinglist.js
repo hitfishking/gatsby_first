@@ -16,7 +16,7 @@
  * b) 表单本体本身都属于下行部分，只有setState()、handleSubmit() 2个方法属于上行部分。
  */
 /*
- * ?? 本例遇到的问题是：引入的css样式并没有产生效果，而且很多table样式功能无效?!! 
+ * 本例遇到的问题是：引入的css样式并没有产生效果，而且很多table样式功能无效?!! 
  * 可能和gatsby项目的其他页面的css样式有冲突。具体原因待查。注释掉全局的Layout.css，问题仍然存在?!
  * 经查，是没有引入bootstrap.4.0.min.css造成的。
  */
@@ -26,6 +26,7 @@ import { useState } from "react";
 import axios from "axios";
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import LoadingSpinner from '../components/LoadingSpinner'
 
 import '../styles/css/bootstrap.4.0.min.css';
 import BootstrapTable from 'react-bootstrap-table-next';   
@@ -62,8 +63,9 @@ const options = {
 
 
 const PenjingList = () => {
-	const [text, setText] = useState('');     //setText()是上行函数,绑定在input框的onChange事件上.
-	const [articles, setArticles] = useState([]);
+	const [text, setText] = useState('')    //setText()是上行函数,绑定在input框的onChange事件上.
+	const [articles, setArticles] = useState([])
+	const [loading, setLoading] = useState(false)
 
 	// useEffect(() => {
 	// }, [ret])
@@ -77,12 +79,14 @@ const PenjingList = () => {
 			return
 		}
 
-		//虽然Netlify云函数通过callback()返回的json是经过JSON.stringify()了的, 但在客户端axios侧还是将其转换成了json格式.
+		setLoading(true)
+		//axios将netlify callback()返回的stringify后的json转换回了json格式。
 		let tmp = await axios.post('/.netlify/functions/fetch-penjing3', { text });  
 		console.log(tmp.data)
-		setArticles(tmp.data)
 
-    setText('');    
+		setArticles(tmp.data)   //改变组件状态变量，会触发组件向下绑定自动闪电渲染。
+		setLoading(false)
+    setText('')    
 	}
 	
 	//设置column宽度，见https://github.com/react-bootstrap-table/react-bootstrap-table2/issues/226
@@ -109,9 +113,8 @@ const PenjingList = () => {
 		text: '文章页号',
 		headerStyle: (colum, colIndex) => {
 			return { width: '220px', textAlign: 'left' };
-		}				
-		}
-	];
+		}		
+	}];
 
 
   return (
@@ -124,18 +127,16 @@ const PenjingList = () => {
 			</p>
 
 			<form class="form-inline mb-3" onSubmit={handleSubmit}>  
-				{/* <div class="form-row align-items-center"> */}
-						<label for="textarea1" class="mr-2">查询内容:</label>
-						<input   
-							type = "text"
-							class="form-control mr-2"
-							placeholder = "输入查询条件..."
-							id="textarea1"
-							value={text}   
-							onChange={event => setText(event.target.value)}  
-						></input>
-						<button class="btn btn-primary" type="submit">查询</button>
-				{/* </div> */}
+				<label for="inputtext" class="mr-2">查询内容:</label>
+				<input   
+					type = "text"
+					class="form-control mr-2"
+					placeholder = "输入查询条件..."
+					id="inputtext"
+					value={text}   
+					onChange={event => setText(event.target.value)}  
+				></input>
+				<button class="btn btn-primary" type="submit">查询</button>
 			</form>
 
 			{/* {articles.length > 0 ? (
@@ -150,13 +151,19 @@ const PenjingList = () => {
 				<p>目前没有内容。</p>
 			)} */}
 
-			<BootstrapTable keyField='id' data={ articles } columns={ columns } 
-				pagination={ paginationFactory(options) } 
-				striped
-				hover
-				condensed
-				bordered={true}
-			/>
+			{loading ? <LoadingSpinner />:<></> }
+			<div class="mb-1">共找到 <strong>{articles.length}</strong> 条记录。</div>
+			{
+				articles.length > 0 ? (
+					<BootstrapTable keyField='id' data={ articles } columns={ columns } 
+						pagination={ paginationFactory(options) } 
+						striped
+						hover
+						condensed
+						bordered={true}
+					/>
+				):(<></>)
+			}
 
 		</Layout>
  
