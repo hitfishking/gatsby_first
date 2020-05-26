@@ -1,0 +1,172 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+	.footer_global {
+		height: 300px;
+		padding-top: 66px;
+		padding-bottom: 20px;
+	}
+
+	:global(.col-sm-12) {
+		width: 100%;
+	}
+	
+	:global(.col-sm-2) {
+		float: left;
+	}
+	:global(.col-sm-4) {
+		float: left;
+		width: 33.33333333%;
+	}
+
+	.footer__header {
+		margin-bottom: 32px;
+	}
+	gamma {
+		font-size: 28px;
+	}
+	.col-sm-2 {
+		width: 16.66666667%
+	}
+	.footer_sub {
+		padding-top: 48px;
+	}
+	.footer__nav {
+		margin-bottom: 0;
+	}	
+}
+
+.container {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 12px;
+	padding-right: 12px;
+	max-width: 1320px;
+}
+
+.container.before,
+.container.after {
+	content: " ";
+	display: table;
+}
+
+.row {
+	margin-left: -12px;
+	margin-right: -12px;
+	display: flex;
+}
+
+.footer__header {
+	margin-bottom: 24px;
+}
+
+gamma {
+	margin: 0 0 16px;
+	font-size: 21px;
+	line-height: 1.2;
+}
+
+.text_weight__bold, 
+.doc_header_card__title {
+	font-weight: 700;
+}
+
+.footer_sub {
+	padding-top: 24px;
+	padding-bottom: 4px;
+	color: #767676;
+	border-top: 1px solid #d1d1d1;
+}
+
+.footer_sub__container {
+	display: flex;
+	-webkit-box-pack: justify;
+	justify-content: space-between;
+}
+
+.hidden_xs {
+	/* display: block !important; */
+	display: flex;
+	padding-top: 5px;
+}
+
+.footer_sub__logo {
+	width: 22px;
+	margin-top: 1px;
+	margin-right: 6px;
+}
+
+.footer__nav {
+	margin-top: 0;
+	margin-bottom: 24px;
+}
+
+.footer__nav_sub {
+	margin: 0;
+}
+
+.footer__nav_item {
+	margin-bottom: 8px;
+	background-color: white;
+}
+
+.list_unstyled {
+	padding-left: 0;
+	list-style: none;
+}
+
+.list_inline {
+	padding-left: 0;
+	list-style: none;
+}
+
+.list_inline_item {
+	display: inline-block;
+	background-color: white;
+}
+
+.list_inline_item:not(:last-child) {
+	margin-right: 24px;
+}
+
+.link__no_underline {
+	text-decoration: none !important;
+	color: #767676;
+}
+
+.list_inline_item_small {
+	display: inline-block;
+}
+
+.list_inline_item_small:not(:last-child) {
+	margin-right: 16px;
+}
+
+:global(.footer-social-links) {
+	text-align: right;
+}
+
+.footer_social_link {
+	display: inline-block;
+	fill: #ccc;
+	transition: fill 0.1s ease-in-out;
+}
+
+.footer_social_icon {
+	width: 24px;
+	height: 24px;
+}
+
+:global(.col-sm-12) {
+	width: 100%;
+}
+
+:global(.col-sm-2) {
+	float: left;
+}
+:global(.col-sm-4) {
+	float: left;
+}
+

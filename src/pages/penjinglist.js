@@ -121,7 +121,7 @@ const PenjingList = () => {
 		<Layout>
 
 			<SEO title="PenJing" />
-			<h1 className="is-size-3">《中国花卉盆景杂志》目录</h1>
+			<h1 className="is-size-3"><strong>《中国花卉盆景杂志》目录</strong></h1>
 			<p style={{ marginTop: "3%", marginBottom: "3%" }}>
 				显示1984年~2013年，供348期杂志的目录。
 			</p>
@@ -135,6 +135,7 @@ const PenjingList = () => {
 					id="inputtext"
 					value={text}   
 					onChange={event => setText(event.target.value)}  
+					autocomplete="on"
 				></input>
 				<button class="btn btn-primary" type="submit">查询</button>
 			</form>
