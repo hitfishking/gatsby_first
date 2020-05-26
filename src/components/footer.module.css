@@ -7,6 +7,7 @@
 		height: 300px;
 		padding-top: 66px;
 		padding-bottom: 20px;
+		background-color: white;
 	}
 
 	:global(.col-sm-12) {
@@ -170,3 +171,10 @@ gamma {
 	float: left;
 }
 
+.bg_image {
+	background-image: url(../images/bg1.jpg);
+}
+
+.bg_scale {
+	padding-top: 300px;
+}

@@ -12,6 +12,8 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Footer from "./footer"
 import "./layout.css"
+import bgimage from "../images/bg1.jpg"   //<img src="">直接使用路径显示不出图片,故采用import到变量中的方法。
+
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -37,6 +39,10 @@ const Layout = ({ children }) => {
       >
         <main>{children}</main>
       </div>
+
+      {/* <div style={{margin:0, maxWidth: "100%", padding: 0}}>
+					<img src={bgimage}></img>
+			</div> */}
       <Footer/>
 
     </>
