@@ -11,7 +11,7 @@
     "@reach/dialog": "^0.10.1",
     "@reach/tabs": "^0.10.1",
     "@reach/visually-hidden": "^0.10.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bulma": "^0.8.2",
     "co": "^4.6.0",
     "faunadb": "^2.13.1",
